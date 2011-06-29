@@ -81,6 +81,13 @@ function the_django_appname {
 }
 
 function manage_py {
+
+    if [ ! -f "manage.py" ]; then
+        if [ ! -f "models.py" ]; then
+            echo "Please go to some Django application directory :)"
+            return 0
+        fi  
+    fi  
     
     if [ -z "$1" ]; then
         ARGS="help"
