@@ -76,6 +76,7 @@ function djm {
             echo "$DJANGO_DIR still exists!"
             return 1
         fi
+    fi
 
     manage_py "$@"
     return 0
