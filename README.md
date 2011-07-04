@@ -26,3 +26,7 @@ If you use `south` for database migrations following aliases will be useful for 
     $ djm sm PollsApp --> python manage.py schemamigration PollsApp --auto
     $ djm m  PollsApp --> python manage.py migrate PollsApp
     $ djm mm PollsApp --> python manage.py schemamigration PollsApp --auto && python manage.py migrate PollsApp
+
+#Django uninstall
+
+    $ djm uninstall
