@@ -61,7 +61,22 @@ function djm {
 
         return 0
     fi
-    
+
+    if [ "$1" == "uninstall" ]; then
+        PYTHON_PACK_DIR=$(python -c "from distutils.sysconfig import get_python_lib; print get_python_lib()");
+        DJANGO_DIR=$PYTHON_PACK_DIR"/django";
+
+        rm -rf $DJANGO_DIR
+        
+        if [ -e "$DJANGO_DIR" ]; then
+            echo "$DJANGO_DIR was deleted successful!";
+            return 0
+        else
+            echo "Ups ... something was wrong!"
+            echo "$DJANGO_DIR still exists!"
+            return 1
+        fi
+
     manage_py "$@"
     return 0
 }
